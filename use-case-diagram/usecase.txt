@@ -1,0 +1,79 @@
+
+1. User Registration/Login
+Actors Involved: Guest, Host, Admin
+Description:
+Allows users to create accounts, log in, and manage their profiles securely.
+Steps:
+Guest or Host submits registration details (e.g., email, password, profile information).
+Admin verifies suspicious accounts.
+User logs in using email/password or OAuth (e.g., Google).
+System Actions:
+Validate input data (e.g., email format, strong password).
+Generate JWT for secure authentication.
+2. Manage Properties
+Actors Involved: Host
+Description:
+Hosts can add, update, and delete property listings with key details.
+Steps:
+Host submits property details, including title, description, price, location, amenities, and photos.
+System stores data in the database and associates it with the host's account.
+Host updates or deletes listings as needed.
+System Actions:
+Validate property details (e.g., location format, image size).
+Ensure listings are displayed accurately in the search results.
+3. Search and Filter Properties
+Actors Involved: Guest
+Description:
+Enables guests to find properties based on various criteria.
+Steps:
+Guest enters search parameters (e.g., location, price range, amenities).
+System retrieves matching properties and applies filters.
+Guest views results with pagination for large datasets.
+System Actions:
+Optimize database queries for fast response times.
+Cache frequently searched results using tools like Redis.
+4. Book Property
+Actors Involved: Guest, Host
+Description:
+Guests can reserve properties for specific dates, and hosts manage booking requests.
+Steps:
+Guest selects available dates and submits a booking request.
+System checks property availability and validates date overlap.
+Booking status is updated (pending → confirmed or canceled).
+Host views confirmed bookings in their dashboard.
+System Actions:
+Prevent double bookings using date validation.
+Notify Guest and Host via email or in-app notification.
+5. Payment Processing
+Actors Involved: Guest, Host
+Description:
+Handles secure payment transactions between guests and hosts.
+Steps:
+Guest submits payment for a confirmed booking using a preferred gateway (e.g., Stripe, PayPal).
+System processes the payment and updates booking status.
+Host receives a payout after booking completion.
+System Actions:
+Encrypt payment details during transmission.
+Send payment confirmation notifications.
+6. Manage Reviews
+Actors Involved: Guest, Host
+Description:
+Guests can leave reviews for properties, and hosts can respond.
+Steps:
+Guest submits a review and rating after a completed booking.
+Host views and responds to the review.
+System links reviews to booking data to ensure authenticity.
+System Actions:
+Prevent duplicate reviews for the same booking.
+Display aggregated ratings on property pages.
+7. Admin Management
+Actors Involved: Admin
+Description:
+Allows the admin to monitor and manage users, listings, bookings, and payments.
+Steps:
+Admin logs into the dashboard.
+Admin views system-wide statistics and reports (e.g., total bookings, revenue).
+Admin takes corrective actions (e.g., deactivate suspicious accounts).
+System Actions:
+Ensure secure role-based access for the admin panel.
+Log all admin actions for audit purposes.
